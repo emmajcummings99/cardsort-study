@@ -1,0 +1,281 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+/* 
+//  consent / instructions / debrief 
+*/
+
+.consent-container,
+.instructions {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+    line-height: 1.6;
+    color: #222;
+}
+
+.consent-container h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.consent-container h2,
+.instructions h2 {
+    font-size: 1.15em;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+}
+
+.consent-container p,
+.instructions p {
+    margin: 0 0 14px 0;
+}
+
+.consent-container ul,
+.instructions ul {
+    margin: 0 0 14px 0;
+    padding-left: 22px;
+}
+
+.consent-container li,
+.instructions li {
+    margin-bottom: 8px;
+}
+
+.consent-container a,
+.instructions a {
+    color: #1a5fb4;
+}
+
+.consent-container hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.consent-container .consent-choice {
+    background-color: #f7f7f7;
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.consent-container .consent-choice label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.consent-container .consent-choice input[type="checkbox"] {
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/*
+   demographics
+*/
+
+.jspsych-survey-html-form {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.jspsych-survey-html-form input[type="text"],
+.jspsych-survey-html-form input[type="number"],
+.jspsych-survey-html-form textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.jspsych-survey-html-form label {
+    cursor: pointer;
+}
+
+/* radio/checkbox option rows (e.g. gender) — indented under the question,
+   not centered on the page */
+.jspsych-survey-html-form p {
+    margin: 0 0 10px 0;
+}
+
+.jspsych-survey-html-form p label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 20px;
+}
+
+.jspsych-survey-html-form p label input[type="radio"],
+.jspsych-survey-html-form p label input[type="checkbox"] {
+    margin: 0;
+}
+
+/* ------------------------------------------------------------
+   CARD SORT
+------------------------------------------------------------- */
+
+.card-sort-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 60px;
+    padding: 15px;
+    margin: 15px 0 25px 0;
+    background-color: #f7f7f7;
+    border: 1px dashed #bbb;
+    border-radius: 6px;
+}
+
+.card {
+    padding: 10px 14px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    cursor: grab;
+    font-size: 14px;
+    max-width: 220px;
+    user-select: none;
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.card.group-card {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+.groups-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+@media (max-width: 1100px) {
+    .groups-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+.group {
+    min-height: 140px;
+    padding: 12px;
+    background-color: #fafafa;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.group h3 {
+    margin: 0 0 6px 0;
+    font-size: 0.95em;
+    color: #555;
+    text-align: center;
+}
+
+.group-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 50px;
+}
+
+.group-labels {
+    margin-top: 6px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.group-labels label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #333;
+}
+
+.group-labels input[type="text"],
+.group-labels textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 4px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.group.drag-over {
+    border-color: #4a90d9;
+    background-color: #eaf3fc;
+}
+
+.warning {
+    display: block;
+    margin-top: 15px;
+    color: #b3261e;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* 
+   JSPSYCH button
+ */
+
+.jspsych-btn {
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.jspsych-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 800px) {
+
+    .jspsych-survey-html-form {
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: none;
+    }
+
+}
