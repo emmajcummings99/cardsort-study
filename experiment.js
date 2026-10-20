@@ -109,7 +109,7 @@ const consent = {
             <p>
                 The study has received full ethical clearance from the Research
                 Ethics Committee who reviewed the study. The committee is the
-                Psychology Ethics Committee.
+                Middlesex University Psychology Research Ethics Committee.
             </p>
 
             <h2>Contact for further information</h2>
