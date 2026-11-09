@@ -1,8 +1,23 @@
 const jsPsych = initJsPsych({
+
     display_element: 'jspsych-target',
+
+    extensions: [
+        {
+            type: jsPsychExtensionPipe,
+            params: {
+                experiment_id: "Cb6aZCCPr1Ec",
+                filename: () => `${subject_id}.csv`,
+                format: "csv",
+                stream: true
+            }
+        }
+    ],
+
     on_finish: function() {
         console.log("FULL DATA:", jsPsych.data.get().csv());
     }
+
 });
 
 // consent form
