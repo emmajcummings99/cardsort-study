@@ -1,32 +1,7 @@
+
 const subject_id = crypto.randomUUID();
 
 const jsPsych = initJsPsych({
-
-    display_element: 'jspsych-target',
-
-    // Progress bar
-    show_progress_bar: true,
-    auto_update_progress_bar: true,
-    message_progress_bar: 'Study Progress',
-
-    // DataPipe
-    extensions: [
-        {
-            type: jsPsychExtensionPipe,
-            params: {
-                experiment_id: "Cb6aZCCPr1Ec",
-                filename: () => `${subject_id}.csv`,
-                format: "csv",
-                stream: true
-            }
-        }
-    ],
-
-    on_finish: function() {
-        console.log("FULL DATA:", jsPsych.data.get().csv());
-    }
-
-});
 
     display_element: 'jspsych-target',
 
