@@ -178,6 +178,32 @@ const consent = {
 
 // demographics
 
+const triggerWarning = {
+    type: jsPsychHtmlButtonResponse,
+
+    stimulus: `
+        <div class="instructions">
+
+            <h2>Content Warning</h2>
+
+            <p>
+                The following task includes descriptions of
+                controlling behaviour, emotional abuse, and
+                victim-blaming statements. Some content may
+                be upsetting or uncomfortable.
+            </p>
+
+            <p>
+                You may stop participating at any time by
+                closing the survey.
+            </p>
+
+        </div>
+    `,
+
+    choices: ["Continue"]
+};
+
 const demographics = {
 
     type: jsPsychSurveyHtmlForm,
