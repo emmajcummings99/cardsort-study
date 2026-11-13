@@ -892,10 +892,6 @@ const timeline = [
     debrief
 ];
 
-// Run experiment
-jsPsych.run(timeline);
-
-
 // run
 
 jsPsych.run(timeline);
