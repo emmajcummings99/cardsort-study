@@ -863,28 +863,13 @@ const shuffledVignettes = jsPsych.randomization.shuffle(vignettes).map((v, i) =>
 // timeline
 
 const timeline = [
-
-    // Initial content warning
     openingWarning,
-
-    // Consent
     consent,
-
-    // Demographics
     demographics,
-
-    // General instructions
     generalInstructions,
-
-    // Reminder before card sorting
     triggerWarning,
-
-    // Four randomized scenarios
     ...shuffledVignettes.flatMap(createVignetteBlock),
-
-    // Debrief
     debrief
-
 ];
 
 // Run experiment
