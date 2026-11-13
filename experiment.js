@@ -1,7 +1,14 @@
+const subject_id = crypto.randomUUID();
+
 const jsPsych = initJsPsych({
 
     display_element: 'jspsych-target',
 
+    // Progress bar
+    show_progress_bar: true,
+    auto_update_progress_bar: true,
+
+    // DataPipe
     extensions: [
         {
             type: jsPsychExtensionPipe,
@@ -179,6 +186,7 @@ const consent = {
 // demographics
 
 const triggerWarning = {
+
     type: jsPsychHtmlButtonResponse,
 
     stimulus: `
@@ -187,10 +195,10 @@ const triggerWarning = {
             <h2>Content Warning</h2>
 
             <p>
-                The following task includes descriptions of
-                controlling behaviour, emotional abuse, and
-                victim-blaming statements. Some content may
-                be upsetting or uncomfortable.
+                The following scenarios include descriptions of
+                sexual harassment and violence, abusive or controlling
+                behaviour, and victim-blaming statements. Some of
+                this content may be upsetting or uncomfortable.
             </p>
 
             <p>
@@ -202,6 +210,7 @@ const triggerWarning = {
     `,
 
     choices: ["Continue"]
+
 };
 
 const demographics = {
@@ -811,18 +820,22 @@ const shuffledVignettes = jsPsych.randomization.shuffle(vignettes).map((v, i) =>
 });
 
 // timeline
-
 const timeline = [
 
     consent,
+
     demographics,
+
     generalInstructions,
+
+    triggerWarning,
 
     ...shuffledVignettes.flatMap(createVignetteBlock),
 
     debrief
 
 ];
+
 
 // run
 
