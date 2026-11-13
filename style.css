@@ -127,6 +127,37 @@ body {
     margin: 0;
 }
 
+/* Force jsPsych progress bar to be visible */
+
+/* JSPSYCH PROGRESS BAR */
+
+#jspsych-progressbar-container {
+    display: block !important;
+    position: relative;
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background: #f0f0f0;
+    z-index: 1000;
+}
+
+#jspsych-progressbar-outer {
+    display: block !important;
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#jspsych-progressbar-inner {
+    display: block !important;
+    height: 100%;
+    background: #4472C4;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
 /* ------------------------------------------------------------
    CARD SORT
 ------------------------------------------------------------- */
