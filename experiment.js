@@ -4,9 +4,16 @@ const jsPsych = initJsPsych({
 
     display_element: 'jspsych-target',
 
+    const subject_id = crypto.randomUUID();
+
+const jsPsych = initJsPsych({
+
+    display_element: 'jspsych-target',
+
     // Progress bar
     show_progress_bar: true,
     auto_update_progress_bar: true,
+    message_progress_bar: 'Study Progress',
 
     // DataPipe
     extensions: [
@@ -26,6 +33,40 @@ const jsPsych = initJsPsych({
     }
 
 });
+
+// opening content warning
+
+const openingWarning = {
+
+    type: jsPsychHtmlButtonResponse,
+
+    stimulus: `
+        <div class="instructions">
+
+            <h2>Content Warning</h2>
+
+            <p>
+                This study includes descriptions of sexual harassment,
+                sexual violence, abusive or controlling behaviour,
+                and victim-blaming statements.
+            </p>
+
+            <p>
+                Some of this material may be upsetting or uncomfortable
+                to read.
+            </p>
+
+            <p>
+                You may stop participating at any time by closing
+                the survey.
+            </p>
+
+        </div>
+    `,
+
+    choices: ["Continue"]
+
+};
 
 // consent form
 
@@ -192,7 +233,7 @@ const triggerWarning = {
     stimulus: `
         <div class="instructions">
 
-            <h2>Content Warning</h2>
+            <h2>Before You Begin</h2>
 
             <p>
                 The following scenarios include descriptions of
@@ -820,21 +861,34 @@ const shuffledVignettes = jsPsych.randomization.shuffle(vignettes).map((v, i) =>
 });
 
 // timeline
+
 const timeline = [
 
+    // Initial content warning
+    openingWarning,
+
+    // Consent
     consent,
 
+    // Demographics
     demographics,
 
+    // General instructions
     generalInstructions,
 
+    // Reminder before card sorting
     triggerWarning,
 
+    // Four randomized scenarios
     ...shuffledVignettes.flatMap(createVignetteBlock),
 
+    // Debrief
     debrief
 
 ];
+
+// Run experiment
+jsPsych.run(timeline);
 
 
 // run
