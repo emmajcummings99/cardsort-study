@@ -1,15 +1,11 @@
+const subject_id = crypto.randomUUID();
 
 const jsPsych = initJsPsych({
     display_element: 'jspsych-target',
     show_progress_bar: true,
     auto_update_progress_bar: true,
-    message_progress_bar: 'Study Progress',
-    on_finish: function() {
-        console.log("FULL DATA:", jsPsych.data.get().csv());
-    }
+    message_progress_bar: 'Study Progress'
 });
-
-// opening content warning
 
     // DataPipe
     extensions: [
@@ -30,7 +26,6 @@ const jsPsych = initJsPsych({
 
 });
 
-// opening content warning
 
 // opening content warning
 
