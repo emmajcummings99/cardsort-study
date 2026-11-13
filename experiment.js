@@ -7,26 +7,6 @@ const jsPsych = initJsPsych({
     message_progress_bar: 'Study Progress'
 });
 
-    // DataPipe
-    extensions: [
-        {
-            type: jsPsychExtensionPipe,
-            params: {
-                experiment_id: "Cb6aZCCPr1Ec",
-                filename: () => `${subject_id}.csv`,
-                format: "csv",
-                stream: true
-            }
-        }
-    ],
-
-    on_finish: function() {
-        console.log("FULL DATA:", jsPsych.data.get().csv());
-    }
-
-});
-
-
 // opening content warning
 
 const openingWarning = {
