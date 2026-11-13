@@ -1,14 +1,15 @@
 
-const subject_id = crypto.randomUUID();
-
 const jsPsych = initJsPsych({
-
     display_element: 'jspsych-target',
-
-    // Progress bar
     show_progress_bar: true,
     auto_update_progress_bar: true,
     message_progress_bar: 'Study Progress',
+    on_finish: function() {
+        console.log("FULL DATA:", jsPsych.data.get().csv());
+    }
+});
+
+// opening content warning
 
     // DataPipe
     extensions: [
@@ -28,6 +29,8 @@ const jsPsych = initJsPsych({
     }
 
 });
+
+// opening content warning
 
 // opening content warning
 
@@ -855,7 +858,13 @@ const shuffledVignettes = jsPsych.randomization.shuffle(vignettes).map((v, i) =>
     });
 });
 
-// timeline
+const saveData = {
+    type: jsPsychPipe,
+    action: "save",
+    experiment_id: "Cb6aZCCPr1Ec",
+    filename: `${subject_id}.csv`,
+    data_string: () => jsPsych.data.get().csv()
+};
 
 const timeline = [
     openingWarning,
@@ -864,6 +873,7 @@ const timeline = [
     generalInstructions,
     triggerWarning,
     ...shuffledVignettes.flatMap(createVignetteBlock),
+    saveData,   // save before the debrief so it runs even if they close the tab on the last page
     debrief
 ];
 
