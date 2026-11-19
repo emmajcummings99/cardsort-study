@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,4 +28,18 @@
 <script src="experiment.js"></script>
 
 </body>
+
+  <script>
+  window.addEventListener("error", function (e) {
+    document.body.insertAdjacentHTML("afterbegin",
+      '<pre style="background:#fee;color:#900;padding:12px;white-space:pre-wrap">' +
+      "ERROR: " + e.message + "\n" + (e.filename || "") + ":" + e.lineno + "</pre>");
+  }, true);
+
+  document.body.insertAdjacentHTML("beforeend",
+    '<pre style="font-size:12px">jsPsych: ' + (typeof initJsPsych) +
+    "\nhtml-button-response: " + (typeof jsPsychHtmlButtonResponse) +
+    "\nsurvey-html-form: " + (typeof jsPsychSurveyHtmlForm) +
+    "\npipe: " + (typeof jsPsychPipe) + "</pre>");
+</script>
 </html>
