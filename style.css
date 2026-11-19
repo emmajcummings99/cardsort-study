@@ -1,3 +1,18 @@
+/* Global sizing and mobile browser compatibility */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 16px;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     background-color: #f2f2f2;
@@ -310,3 +325,298 @@ body {
     }
 
 }
+
+
+/* ------------------------------------------------------------
+   MOBILE RESPONSIVENESS
+------------------------------------------------------------- */
+
+/* General containers */
+
+#jspsych-target {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.consent-container,
+.instructions,
+.card-sort-container,
+.jspsych-survey-html-form {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Touch-friendly cards */
+
+.card {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    overflow-wrap: anywhere;
+    line-height: 1.45;
+}
+
+.card.selected {
+    border: 3px solid #2878c7;
+    background-color: #e8f2ff;
+    box-shadow: 0 0 0 2px rgba(40, 120, 199, 0.15);
+}
+
+/* Selected destination group */
+
+.group.selected-target,
+.group.drag-over {
+    border-color: #2878c7;
+    background-color: #e8f2ff;
+}
+
+/* Mobile sorting instructions */
+
+.mobile-sort-hint {
+    display: none;
+    padding: 14px;
+    margin: 15px 0;
+    background-color: #e8f2ff;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* ------------------------------------------------------------
+   TABLETS
+------------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+    .consent-container,
+    .instructions,
+    .card-sort-container {
+        margin: 20px auto;
+        padding: 24px;
+    }
+
+    .groups-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cards-container {
+        gap: 12px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .group {
+        min-width: 0;
+    }
+
+}
+
+/* ------------------------------------------------------------
+   MOBILE PHONES
+------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* Headings */
+
+    h1 {
+        font-size: 1.45rem;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    /* Consent, instructions and debrief */
+
+    .consent-container,
+    .instructions,
+    .card-sort-container {
+        width: 100%;
+        margin: 12px auto;
+        padding: 18px;
+        border-radius: 8px;
+    }
+
+    .consent-container h1 {
+        font-size: 1.4rem;
+    }
+
+    .consent-container h2,
+    .instructions h2 {
+        margin-top: 22px;
+    }
+
+    /* Consent checkbox */
+
+    .consent-container .consent-choice {
+        padding: 14px;
+    }
+
+    .consent-container .consent-choice label {
+        line-height: 1.5;
+    }
+
+    .consent-container .consent-choice input[type="checkbox"] {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* Demographics */
+
+    .jspsych-survey-html-form {
+        width: 100%;
+        max-width: none;
+        margin: 12px auto;
+        padding: 18px;
+    }
+
+    .jspsych-survey-html-form input[type="text"],
+    .jspsych-survey-html-form input[type="number"],
+    .jspsych-survey-html-form textarea {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .jspsych-survey-html-form p label {
+        padding: 8px 0 8px 10px;
+        line-height: 1.5;
+    }
+
+    .jspsych-survey-html-form input[type="radio"] {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+    }
+
+    /* Unsorted cards */
+
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+        gap: 10px;
+        padding: 12px;
+        margin: 15px 0 20px;
+    }
+
+    /* Individual cards */
+
+    .card {
+        width: 100%;
+        max-width: none;
+        min-height: 65px;
+        padding: 15px;
+        font-size: 16px;
+        text-align: center;
+        justify-content: center;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .card.group-card {
+        width: 100%;
+        max-width: none;
+    }
+
+    /* Groups */
+
+    .groups-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        width: 100%;
+    }
+
+    .group {
+        width: 100%;
+        min-width: 0;
+        min-height: 110px;
+        padding: 14px;
+        border-radius: 8px;
+    }
+
+    .group h3 {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+    }
+
+    .group-cards {
+        gap: 10px;
+        min-height: 55px;
+    }
+
+    /* Group names and explanations */
+
+    .group-labels {
+        margin-top: 12px;
+        padding-top: 12px;
+    }
+
+    .group-labels label {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .group-labels input[type="text"],
+    .group-labels textarea {
+        width: 100%;
+        min-height: 45px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .group-labels textarea {
+        min-height: 85px;
+    }
+
+    /* Mobile sorting instructions */
+
+    .mobile-sort-hint {
+        display: block;
+        font-size: 15px;
+    }
+
+    /* Progress bar */
+
+    #jspsych-progressbar-container {
+        padding: 10px 5px;
+    }
+
+    /* Continue buttons */
+
+    .jspsych-btn {
+        display: block;
+        width: 100%;
+        max-width: 350px;
+        min-height: 48px;
+        margin: 22px auto;
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    /* Warning message */
+
+    .warning {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+}
+
