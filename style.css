@@ -374,10 +374,14 @@ body {
 /* Mobile sorting instructions */
 
 .mobile-sort-hint {
-    display: none;
-    padding: 14px;
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 12px;
     margin: 15px 0;
     background-color: #e8f2ff;
+    border: 1px solid #b7d3f2;
     border-radius: 8px;
     text-align: center;
     line-height: 1.5;
